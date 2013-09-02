@@ -80,7 +80,7 @@ var srcEventFieldsToIgnore = [
 			}
 		},
 		function (next) {
-			console.log( 'adding Administrator' );
+			console.log( 'adding an Administrator' );
 			destDb.insert(
 				'users',
 				['name','email','password', 'is_super_admin'],
@@ -94,6 +94,7 @@ var srcEventFieldsToIgnore = [
 				}
 			);
 		},
+		// migrate user roles
 		function (next) {
 			console.log( 'migrating users ...' );
 			migrateUsers( srcDb, destDb, next );
